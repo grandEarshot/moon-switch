@@ -1,5 +1,5 @@
 {
-  "name": "pc/moon_switch",
+  "name": "grandEarshot/moon_switch",
   "version": "0.1.0",
   "deps": {
     "moonbitlang/async": "0.16.8",
