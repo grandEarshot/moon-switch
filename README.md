@@ -23,10 +23,10 @@ configuration:
 
 ```bash
 # Use the default config (~/.moon-switch/providers.toml)
-moon run cmd/main --
+moon run cmd/moon-switch --
 
 # Or specify a custom config path
-moon run cmd/main -- --profiles /path/to/providers.toml
+moon run cmd/moon-switch -- --profiles /path/to/providers.toml
 ```
 
 When running without `--profiles`, the tool looks for
@@ -36,6 +36,14 @@ template config file are created automatically.
 The repository includes a sanitized example at
 [`providers.example.toml`](./providers.example.toml). Keep your real
 `providers.toml` out of Git.
+
+## Install
+
+```bash
+moon install grandEarshot/moon_switch/cmd/moon-switch@0.1.1
+```
+
+This installs the binary as `moon-switch` under `~/.moon/bin/`.
 
 ## Interactive Controls
 

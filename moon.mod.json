@@ -1,6 +1,6 @@
 {
   "name": "grandEarshot/moon_switch",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "deps": {
     "moonbitlang/async": "0.16.8",
     "bobzhang/toml": "0.2.0"

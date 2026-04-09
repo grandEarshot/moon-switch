@@ -1,6 +1,6 @@
 # Example provider configuration for local use.
 # Copy the entries you need into ~/.moon-switch/providers.toml
-# or pass a custom file with `moon run cmd/main -- --profiles /path/to/providers.toml`.
+# or pass a custom file with `moon run cmd/moon-switch -- --profiles /path/to/providers.toml`.
 
 [[codex]]
 name = "Example Provider"
