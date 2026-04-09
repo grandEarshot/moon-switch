@@ -1,0 +1,29 @@
+# MoonBit build artifacts
+_build/
+
+# Mooncakes dependencies
+.mooncakes/
+
+# Lock files that are auto-generated
+.moon-lock
+
+# Local provider config and secrets
+providers.toml
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Tool config (local)
+.codex
+.qwen/
+
+# Environment files
+.env
+.env.local

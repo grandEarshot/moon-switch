@@ -1,0 +1,14 @@
+# Example provider configuration for local use.
+# Copy the entries you need into ~/.moon-switch/providers.toml
+# or pass a custom file with `moon run cmd/main -- --profiles /path/to/providers.toml`.
+
+[[codex]]
+name = "Example Provider"
+base_url = "https://api.example.com/v1"
+api_key = "sk-your-api-key-here"
+
+[[claude]]
+name = "Example Claude Provider"
+base_url = "https://api.example.com/anthropic"
+api_key = "sk-your-api-key-here"
+ANTHROPIC_MODEL = "claude-sonnet-4-20250514"

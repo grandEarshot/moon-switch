@@ -1,0 +1,10 @@
+import {
+  "moonbitlang/core/env",
+  "moonbitlang/async",
+  "moonbitlang/async/stdio",
+  "pc/moon_switch" @lib,
+}
+
+options(
+  "is-main": true,
+)
