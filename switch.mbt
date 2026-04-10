@@ -1178,28 +1178,15 @@ fn build_updated_config(
   let root = expect_toml_table(copy_toml(current_config), "config root")
   root["model_provider"] = @toml.TomlString(provider.name)
 
-  let provider_tables = match root.get("model_providers") {
-    Some(@toml.TomlTable(existing)) => existing
+  match root.get("model_providers") {
+    Some(@toml.TomlTable(_)) => ()
     Some(_) => cli_error("config root field `model_providers` must be a table")
-    None => {
-      let created : Map[String, @toml.TomlValue] = Map::new()
-      root["model_providers"] = @toml.TomlTable(created)
-      created
-    }
+    None => ()
   }
-
-  let selected_provider_table = match provider_tables.get(provider.name) {
-    Some(@toml.TomlTable(existing)) => existing
-    Some(_) =>
-      cli_error(
-        "config field `model_providers.\{provider.name}` must be a table",
-      )
-    None => {
-      let created : Map[String, @toml.TomlValue] = Map::new()
-      provider_tables[provider.name] = @toml.TomlTable(created)
-      created
-    }
-  }
+  let provider_tables : Map[String, @toml.TomlValue] = Map::new()
+  root["model_providers"] = @toml.TomlTable(provider_tables)
+  let selected_provider_table : Map[String, @toml.TomlValue] = Map::new()
+  provider_tables[provider.name] = @toml.TomlTable(selected_provider_table)
   selected_provider_table["name"] = @toml.TomlString(provider.name)
   selected_provider_table["base_url"] = @toml.TomlString(provider.base_url)
 

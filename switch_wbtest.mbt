@@ -232,7 +232,7 @@ test "parse_providers_doc rejects non-string claude env values" {
 }
 
 ///|
-async test "apply_provider updates codex config and auth while preserving unrelated fields" {
+async test "apply_provider updates codex config and auth and keeps only the selected provider" {
   let provider_text =
     #|[[codex]]
     #|name = "QuicklyAPI"
@@ -242,6 +242,10 @@ async test "apply_provider updates codex config and auth while preserving unrela
   let config_text =
     #|model = "gpt-5.4"
     #|model_provider = "OpenAI"
+    #|
+    #|[model_providers.OpenAI]
+    #|name = "OpenAI"
+    #|base_url = "https://api.openai.com/v1"
     #|
     #|[model_providers.QuicklyAPI]
     #|name = "QuicklyAPI"
@@ -282,8 +286,6 @@ async test "apply_provider updates codex config and auth while preserving unrela
                 {
                   "name": ["TomlString", "QuicklyAPI"],
                   "base_url": ["TomlString", "https://sub.jlypx.de"],
-                  "wire_api": ["TomlString", "responses"],
-                  "requires_openai_auth": ["TomlBoolean", true],
                 },
               ],
             },

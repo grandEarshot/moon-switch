@@ -40,7 +40,7 @@ The repository includes a sanitized example at
 ## Install
 
 ```bash
-moon install grandEarshot/moon_switch/cmd/moon-switch@0.1.1
+moon install grandEarshot/moon_switch/cmd/moon-switch@0.1.2
 ```
 
 This installs the binary as `moon-switch` under `~/.moon/bin/`.
@@ -85,7 +85,7 @@ Rules:
 
 - Missing target files are created automatically
 - `config.toml` is rewritten structurally, comments are not preserved
-- Existing provider-specific fields under `model_providers.<name>` are preserved
+- The `model_providers` table is rewritten to contain only the selected provider, with `name` and `base_url`
 - Claude root fields such as `permissions` and root `model` are preserved
 
 ## Verification
